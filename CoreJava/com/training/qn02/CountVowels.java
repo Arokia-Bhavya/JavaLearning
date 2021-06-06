@@ -1,10 +1,13 @@
 package com.training.qn02;
 
+import java.util.Arrays;
+
 public class CountVowels {
 
 	public static void main(String[] args) {
 	 int count=0;
      String input="NewyorkE";
+     
      input=input.toLowerCase();
      char[] vowels=new char[] {'a','e','i','o','u'};
      for (char ch:vowels)
@@ -14,5 +17,4 @@ public class CountVowels {
      }
      System.out.println("Number of vowels:"+count);
 	}
-
 }
