@@ -1,7 +1,12 @@
 package com.training.qn02;
 
-import java.util.Arrays;
 
+/*
+ * Find the number of vowels in a given string
+Input1:”NewyorkE” 'e' or 'E' - it should be counted as 1 
+Output1:2 Hint:irrespective of case
+ * 
+ */
 public class CountVowels {
 
 	public static void main(String[] args) {
