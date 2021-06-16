@@ -13,10 +13,10 @@ Example: input1 = New York input2 = New Jersy output = New Y+r+
 
 	private static void modify(String input1, String input2) {
 		System.out.println("input:"+input1);
-
+		
 		for (char input1Value:input1.toCharArray())
 		{
-			if(!input2.contains(""+input1Value))
+			if(!input2.toLowerCase().contains(""+Character.toLowerCase(input1Value)))
 				input1=input1.replace(input1Value, '+');
 		}
 		
