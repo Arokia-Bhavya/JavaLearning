@@ -7,17 +7,18 @@ public class Inventory {
 	public static void main(String[] args) {
 
 		Scanner scan=new Scanner(System.in);
-		System.out.println("Enter the Number of dozens purchased:");
-		int noOfDozens=scan.nextInt();
-		System.out.println("Enter the cost per dozen:");
-		int costPerDozen=scan.nextInt();
-		System.out.println("Enter the selling price per item:");
-		int sellingPrice=scan.nextInt();
+		System.out.println("Price of item 1 :");
+		float total=scan.nextFloat();
+		System.out.println("Price of item 2 :");
+		total+=scan.nextFloat();
+		System.out.println("Discount in percentage :");
+		int discount=scan.nextInt();
 		scan.close();
-		double costPrice=costPerDozen/12.0;
-		double profit=((sellingPrice - costPrice)/costPrice)*100.00;
+		System.out.println("Total amount:"+total);
+		double discountPrice=(total*discount)/100.00;
 		double scale=Math.pow(10, 2);
-		System.out.println("Profit Percentage:"+(Math.round(profit*scale)/scale) +"%");
+		System.out.println("Discounted amount :"+Math.round((total - discountPrice)*scale)/scale);
+		System.out.println("Saved amount :"+discountPrice);
 	}
 
 }
