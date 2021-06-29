@@ -1,6 +1,6 @@
 package com.training.qn01;
 
-public class Calculator {
+public  class Calculator {
 
 	/*
 	 * Create a calculator class to perform addition, subtraction, multiplication and division of two integers. 
