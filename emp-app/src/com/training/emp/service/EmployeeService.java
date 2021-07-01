@@ -18,4 +18,8 @@ public interface EmployeeService {
 
 	void updateContact(int empId, String contact) throws EmployeeNotFoundException;
 
+	double getGenderDiversityRatio();
+
+	void updateSalary(double hikePercentage);
+
 }

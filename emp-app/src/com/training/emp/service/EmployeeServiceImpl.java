@@ -80,6 +80,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 	}
 
+	@Override
+	public double getGenderDiversityRatio() {
+		return repository.getGenderDiversityRatio();
+	}
+
+	@Override
+	public void updateSalary(double hikePercentage) {
+		repository.updateSalary(hikePercentage);
+		
+	}
+
 	
 
 }

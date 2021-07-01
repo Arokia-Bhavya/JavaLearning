@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import com.training.emp.model.Employee;
+import com.training.emp.model.Gender;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
@@ -13,9 +14,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	public EmployeeRepositoryImpl() {
 		employeeSet = new HashSet<>();
-		Employee employee1 = new Employee(101, "Immanuel");
-		Employee employee2 = new Employee(102, "Saranya");
-		Employee employee3 = new Employee(103, "Prithivi");
+		Employee employee1 = new Employee(101, "Immanuel",Gender.MALE);
+		Employee employee2 = new Employee(102, "Saranya",Gender.FEMALE);
+		Employee employee3 = new Employee(103, "Prithivi",Gender.MALE);
 		employeeSet.add(employee1);
 		employeeSet.add(employee2);
 		employeeSet.add(employee3);
@@ -75,6 +76,27 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 						emp.setContact(employee.getContact());
 					}
 				}
+	}
+
+	@Override
+	public double getGenderDiversityRatio() {
+		int count=0;
+		for (Employee emp : employeeSet) {
+			if (emp.getGender().equals(Gender.FEMALE)) {
+				count++;
+			}
+		}
+			
+		return ((double)count/employeeSet.size())*100;
+	}
+
+	@Override
+	public void updateSalary(double hikePercentage) {
+		
+		for (Employee emp : employeeSet) {
+			emp.setSalary(emp.getSalary()*(hikePercentage/100) + emp.getSalary());
+		}
+		
 	}
 
 }

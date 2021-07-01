@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.training.emp.exception.EmployeeNotFoundException;
 import com.training.emp.model.Employee;
+import com.training.emp.model.Gender;
 import com.training.emp.service.EmployeeService;
 import com.training.emp.service.EmployeeServiceImpl;
 
@@ -46,7 +47,7 @@ public class EmployeeServiceTest {
 		}
 
 		System.out.println("Adding an employee");
-		Employee newEmployee = new Employee(4, "Kavin");
+		Employee newEmployee = new Employee(4, "Kavin",Gender.MALE);
 		service.save(newEmployee);
 		employeeSet = service.findAll();
 		System.out.println(employeeSet);
@@ -74,7 +75,16 @@ public class EmployeeServiceTest {
 		} catch (EmployeeNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("Enter Year End hike to be given in percentage:");
+		double hikePercentage=scan.nextDouble();
+		service.updateSalary(hikePercentage);
 		scan.close();
+		employeeSet = service.findAll();
+		System.out.println(employeeSet);
+		System.out.println("Female Diversity Ratio:"+service.getGenderDiversityRatio()+"%");
+		
+		
 	}
 
 }

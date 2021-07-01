@@ -5,7 +5,37 @@ public class Employee {
 	private String name;
 	private static final String org = "Training";
 	private String contact;
+	private Gender gender;
+	private double salary=1000.0;
 	
+	
+	public Employee(int id, String name, Gender gender) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+	}
+
+	
+	
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	
+	
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
 	public String getContact() {
 		return contact;
 	}
@@ -74,8 +104,10 @@ public class Employee {
 		return true;
 	}
 
+	@Override
 	public String toString() {
-		return id + " " + name + " " + org + " " + contact;
+		return "Employee [id=" + id + ", name=" + name + ", contact=" + contact + ", gender=" + gender + ", salary="
+				+ salary + "]";
 	}
 
 }

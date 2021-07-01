@@ -18,4 +18,8 @@ public interface EmployeeRepository {
 
 	void updateContact(Employee result);
 
+	double getGenderDiversityRatio();
+
+	void updateSalary(double hikePercentage);
+
 }
