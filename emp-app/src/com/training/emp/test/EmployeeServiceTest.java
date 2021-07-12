@@ -47,7 +47,7 @@ public class EmployeeServiceTest {
 		}
 
 		System.out.println("Adding an employee");
-		Employee newEmployee = new Employee(4, "Kavin",Gender.MALE);
+		Employee newEmployee = new Employee(1, "Arokia",Gender.FEMALE);
 		service.save(newEmployee);
 		employeeSet = service.findAll();
 		System.out.println(employeeSet);

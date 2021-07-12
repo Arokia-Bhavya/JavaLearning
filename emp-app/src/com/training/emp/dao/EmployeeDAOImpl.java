@@ -19,8 +19,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	public EmployeeDAOImpl() {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "root", "password");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/emp_app","root","password");
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,9 +62,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public void save(Employee employee) {
 		try {
-			pstmt = con.prepareStatement("insert into employee values(?,?)");
+			pstmt = con.prepareStatement("insert into employee values(?,?,?,?,?)");
 			pstmt.setInt(1, employee.getId());
 			pstmt.setString(2, employee.getName());
+			pstmt.setString(3, employee.getContact());
+			pstmt.setString(4, employee.getGender().name());			
+			pstmt.setDouble(5, employee.getSalary());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
