@@ -16,8 +16,22 @@ public class Employee {
 		this.gender = gender;
 	}
 
+	public Employee(int id, String name, Gender gender,String contact) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.contact = contact;
+	}
 	
-	
+	public Employee(int id, String name, Gender gender,String contact,double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.contact = contact;
+		this.salary=salary;
+	}
 	public Gender getGender() {
 		return gender;
 	}

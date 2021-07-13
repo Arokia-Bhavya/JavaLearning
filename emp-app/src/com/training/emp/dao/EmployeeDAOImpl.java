@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.training.emp.model.Employee;
+import com.training.emp.model.Gender;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 
@@ -34,7 +35,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			rs = pstmt.executeQuery();
 			employeeSet = new HashSet<>();
 			while (rs.next()) {
-				Employee employee = new Employee(rs.getInt("id"), rs.getString("name"));
+				Employee employee = new Employee(rs.getInt("id"),
+						rs.getString("name"),
+						rs.getString("Gender").equals("MALE")?Gender.MALE:Gender.FEMALE,
+						rs.getString("contact"),rs.getDouble("salary"));
 				employeeSet.add(employee);
 			}
 		} catch (SQLException e) {
@@ -98,6 +102,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void updateSalary(double hikePercentage) {
+		try {
+			pstmt = con.prepareStatement("update employee set salary=((salary*(?/100)) + salary)");
+			
+			pstmt.setDouble(1, hikePercentage);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

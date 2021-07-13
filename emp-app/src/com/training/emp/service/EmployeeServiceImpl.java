@@ -69,14 +69,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void updateContact(int empId, String contact) throws EmployeeNotFoundException {
-		Employee employee = repository.findById(empId);		
-//		Employee result = dao.findById(employee.getId());
+//   	Employee employee = repository.findById(empId);		
+		Employee employee = dao.findById(empId);
 		if (employee == null) {
 			throw new EmployeeNotFoundException("Employee Id Not Found");
 		} else {
 			employee.setContact(contact);
-			repository.updateContact(employee);
-//			dao.update(employee);
+//			repository.updateContact(employee);
+			dao.update(employee);
 		}
 	}
 
@@ -87,7 +87,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void updateSalary(double hikePercentage) {
-		repository.updateSalary(hikePercentage);
+		dao.updateSalary(hikePercentage);
+		//repository.updateSalary(hikePercentage);
 		
 	}
 

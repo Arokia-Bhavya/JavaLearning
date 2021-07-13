@@ -17,6 +17,11 @@ public class EmployeeServiceTest {
 		EmployeeService service = new EmployeeServiceImpl();
 
 		System.out.println("Employee Service");
+		System.out.println("Adding an employee");
+		Employee newEmployee = new Employee(1, "Arokia",Gender.FEMALE,"9789972035");
+		service.save(newEmployee);
+		employeeSet = service.findAll();
+		System.out.println(employeeSet);
 
 		System.out.println("Find All Employees");
 		employeeSet = service.findAll();
@@ -36,7 +41,7 @@ public class EmployeeServiceTest {
 
 		System.out.println("Update Id");
 		// 1. Create New employee Data to be updated
-		Employee updateEmployee = new Employee(1, "ImmanuelMathew");
+		Employee updateEmployee = new Employee(1, "Maria");
 		try {
 			// 2. call the update method in service with input emp obje
 			service.update(updateEmployee);
@@ -46,21 +51,6 @@ public class EmployeeServiceTest {
 
 		}
 
-		System.out.println("Adding an employee");
-		Employee newEmployee = new Employee(1, "Arokia",Gender.FEMALE);
-		service.save(newEmployee);
-		employeeSet = service.findAll();
-		System.out.println(employeeSet);
-
-		System.out.println("Deleting an employee");
-		id = 3;
-		try {
-			service.delete(id);
-			employeeSet = service.findAll();
-			System.out.println(employeeSet);
-		} catch (EmployeeNotFoundException e) {
-			e.printStackTrace();
-		}
 		
 		System.out.println("Updating contact for an employee");
 		Scanner scan=new Scanner(System.in);
@@ -75,6 +65,10 @@ public class EmployeeServiceTest {
 		} catch (EmployeeNotFoundException e) {
 			e.printStackTrace();
 		}
+
+		
+		
+		
 		
 		System.out.println("Enter Year End hike to be given in percentage:");
 		double hikePercentage=scan.nextDouble();
@@ -83,7 +77,15 @@ public class EmployeeServiceTest {
 		employeeSet = service.findAll();
 		System.out.println(employeeSet);
 		System.out.println("Female Diversity Ratio:"+service.getGenderDiversityRatio()+"%");
-		
+		System.out.println("Deleting an employee");
+		id = 1;
+		try {
+			service.delete(id);
+			employeeSet = service.findAll();
+			System.out.println(employeeSet);
+		} catch (EmployeeNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
