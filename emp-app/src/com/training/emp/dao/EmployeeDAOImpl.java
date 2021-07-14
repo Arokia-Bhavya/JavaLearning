@@ -95,7 +95,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public void delete(int id) {
 		try {
-			pstmt = con.prepareStatement("delete employee where id=?");
+			pstmt = con.prepareStatement("delete from employee where id=?");
 			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -115,6 +115,24 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public double getGenderDiversityRatio() {
+		 double diversity = 0;
+		try
+		{
+			pstmt= con.prepareStatement("select round((select count(*) from employee where gender='FEMALE')/(select count(*) from employee) * 100,2) diversity");
+			rs = pstmt.executeQuery();
+			while (rs.next())
+			{
+				diversity=rs.getDouble("diversity");
+			}
+		}catch (SQLException sqlExp)
+		{
+			sqlExp.printStackTrace();
+		}
+		return diversity;
 	}
 
 }

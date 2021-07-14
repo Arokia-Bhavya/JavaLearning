@@ -16,4 +16,6 @@ public interface EmployeeDAO {
 	void delete(int id);
 
 	void updateSalary(double hikePercentage);
+
+	double getGenderDiversityRatio();
 }

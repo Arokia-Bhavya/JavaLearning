@@ -57,8 +57,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void delete(int id) throws EmployeeNotFoundException {
-		 Employee employee = repository.findById(id);
-		//Employee employee = dao.findById(id);
+		 //Employee employee = repository.findById(id);
+		Employee employee = dao.findById(id);
 		if (employee == null) {
 			throw new EmployeeNotFoundException("Employee doesn't exist!!");
 		} else {
@@ -82,7 +82,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public double getGenderDiversityRatio() {
-		return repository.getGenderDiversityRatio();
+		return dao.getGenderDiversityRatio();
 	}
 
 	@Override
