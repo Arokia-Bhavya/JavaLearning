@@ -22,4 +22,8 @@ public interface EmployeeService {
 
 	void updateSalary(double hikePercentage);
 
+	double getKeyResults(String string);
+
+	Set<Employee> findEmployeesGreaterSalary();
+
 }

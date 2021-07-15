@@ -92,6 +92,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 	}
 
+	@Override
+	public double getKeyResults(String operation) {
+		
+		return dao.getKeyResults(operation);
+	}
+
+	@Override
+	public Set<Employee> findEmployeesGreaterSalary() {
+		return dao.getEmployeesBySalary();
+	}
+
 	
 
 }

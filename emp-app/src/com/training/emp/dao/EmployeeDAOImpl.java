@@ -135,4 +135,43 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return diversity;
 	}
 
+	@Override
+	public double getKeyResults(String operation) {
+		 double diversity = 0;
+		try
+		{
+			
+			pstmt= con.prepareStatement("select "+operation+"(salary) "+operation+" from employee");
+			rs = pstmt.executeQuery();
+			while (rs.next())
+			{
+				diversity=rs.getDouble(operation);
+			}
+		}catch (SQLException sqlExp)
+		{
+			sqlExp.printStackTrace();
+		}
+		return diversity;
+	}
+
+	@Override
+	public Set<Employee> getEmployeesBySalary() {
+		try {
+			pstmt = con.prepareStatement("select * from employee where salary > 10000");
+			rs = pstmt.executeQuery();
+			employeeSet = new HashSet<>();
+			while (rs.next()) {
+				Employee employee = new Employee(rs.getInt("id"),
+						rs.getString("name"),
+						rs.getString("Gender").equals("MALE")?Gender.MALE:Gender.FEMALE,
+						rs.getString("contact"),rs.getDouble("salary"));
+				employeeSet.add(employee);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return employeeSet;
+	}
+	
+	
 }

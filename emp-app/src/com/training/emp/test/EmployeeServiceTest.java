@@ -77,6 +77,13 @@ public class EmployeeServiceTest {
 		employeeSet = service.findAll();
 		System.out.println(employeeSet);
 		System.out.println("Female Diversity Ratio:"+service.getGenderDiversityRatio()+"%");
+		System.out.println("Maximum Salary of Employee "+service.getKeyResults("max"));
+		System.out.println("Minimum Salary of Employee "+service.getKeyResults("min"));
+		System.out.println("Sum of the Salary of all Employees" +service.getKeyResults("sum"));
+	
+		System.out.println("Find All Employees of salary greater than 10000");
+		employeeSet = service.findEmployeesGreaterSalary();
+		System.out.println(employeeSet);
 		System.out.println("Deleting an employee");
 		id = 1;
 		try {
@@ -88,5 +95,4 @@ public class EmployeeServiceTest {
 		}
 		
 	}
-
 }

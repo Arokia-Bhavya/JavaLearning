@@ -18,4 +18,8 @@ public interface EmployeeDAO {
 	void updateSalary(double hikePercentage);
 
 	double getGenderDiversityRatio();
+
+	double getKeyResults(String operation);
+
+	Set<Employee> getEmployeesBySalary();
 }
