@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 
+import annotations.TimeLog;
+
 public class sample {
 	static int num;
 	int num1;
@@ -12,13 +14,17 @@ public class sample {
 	{
 		num1=10;
 	}
+	
+	@TimeLog
+	void test()
+	{
+		System.out.println("test");
+		
+	}
 	public static void main(String[] args) {
-		LinkedList<Integer> numlist=new LinkedList<Integer>();
-		numlist.add(1);
-		numlist.add(2);
-		numlist.add(3);
-		System.out.println(numlist.get(1));
-
+		new sample().test();
+		
+		
 	}
 
 }

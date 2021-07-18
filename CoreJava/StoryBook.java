@@ -8,6 +8,7 @@ public class StoryBook extends Book{
 		System.out.println("I am reading a StoryBook");
 	}
 
+	
 	void buy() {
 		System.out.println("I am buying a new StoryBook");
 	}
