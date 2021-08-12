@@ -7,11 +7,12 @@
 - Wrapper Classes and Autoboxing
 - Enum
 - Varargs
-- Generics
+- Generics PECS
 - Shallow vs Deep cloning
 - String,StringBuffer,StringBuilder
 - Checked & Unchecked Exception
 - Multithreading
+- Immutable
 - Collections
 - JDBC
 - I/O
