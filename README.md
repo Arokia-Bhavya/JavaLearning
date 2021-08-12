@@ -1,7 +1,7 @@
 # JavaLearning
 ****JavaLearning****
 - Method Overloading
-- Method hiding
+- Method Overriding
 - Method Hiding
 - Interface vs abstract class
 - Wrapper Classes and Autoboxing
