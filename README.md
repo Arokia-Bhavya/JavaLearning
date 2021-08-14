@@ -1,17 +1,18 @@
 # JavaLearning
 ****JavaLearning****
 - Method Overloading
-- Method hiding
+- Method Overriding
 - Method Hiding
 - Interface vs abstract class
 - Wrapper Classes and Autoboxing
 - Enum
 - Varargs
-- Generics
+- Generics PECS
 - Shallow vs Deep cloning
 - String,StringBuffer,StringBuilder
 - Checked & Unchecked Exception
 - Multithreading
+- Immutable
 - Collections
 - JDBC
 - I/O
