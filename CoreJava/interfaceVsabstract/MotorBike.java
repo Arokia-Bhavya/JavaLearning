@@ -22,6 +22,7 @@ interface Drivable
 	{		
 		return age>18? true:false;
 	}
+	
 }
 public class MotorBike implements Drivable{
 	int age;
@@ -43,11 +44,11 @@ public class MotorBike implements Drivable{
 			System.out.println("specific driving skills");
 	}
 	
+	
 	public static void main(String[] args) {
 		Drivable bike=new MotorBike(20);
 		bike.drive();
 		bike.display();
-		
 	}
 
 }
